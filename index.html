@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <title>Kinetic Loader</title>
+    <style>
+      body{
+        background-image: linear-gradient(to right top, #54246e, #50256c, #4b266a, #472767, #432765, #35306d, #223872, #023f75, #004d79, #005975, #00626d, #146b64);
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        height:100vh;
+        overflow:hidden;
+        margin:0;
+      }
+      .kinetic{
+        position:relative;
+        height:80px;
+        width: 80px;
+      }
+      .kinetic::after, .kinetic::before{
+        content:'';
+        position:absolute;
+        top:0;
+        left:0;
+        width:0;
+        height:0;
+        border:20px solid transparent;
+        border-bottom-color:#fff;
+        animation:rotateA 2s linear infinite 0.5s;
+      }
+
+      .kinetic::before{
+        transform: rotate(90deg);
+        animation:rotateB 2s linear infinite;
+      }
+
+      @keyframes rotateA {
+        0%,25%{
+          transform:rotate(0deg);
+        }
+        50%,75%{
+          transform:rotate(180deg);
+        }
+        100%{
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes rotateB {
+        0%,25%{
+          transform:rotate(90deg);
+        }
+        50%,75%{
+          transform:rotate(270deg);
+        }
+        100%{
+          transform: rotate(450deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="kinetic"></div>
+
+  </body>
+</html>
